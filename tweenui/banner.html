@@ -1,0 +1,447 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title></title>
+    <script>
+        var clickTag = "";
+        (function(tweenui) {
+            var timeline;
+            var loop = -1;
+            var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            var firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+
+            function startPlaying() {
+                if (loop < 0) timeline.play(0);
+                else {
+                    if (loop > 0) {
+                        loop--;
+                        timeline.play(0)
+                    }
+                }
+            }
+
+            function g(name) {
+                name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+                var regex = new RegExp("[\\?&]" + name + "=([^&#]*)", "i");
+                var results = regex.exec(window.location.search);
+                if (results == null) return "";
+                else return decodeURIComponent(results[1].replace(/\+/g, " "));
+            }
+
+            function gl(a) {
+                for (var i = 0; i < a.length; ++i) {
+                    var x = g(a[i]);
+                    if (x != '') return x;
+                }
+                return '';
+            }
+            var res = function() {
+                var bd = document.getElementsByTagName('body')[0];
+                if (firefox) {
+                    bd.style.mozTransform = 'scale(' + window.innerWidth / 580 + ')';
+                    bd.style.transform = 'scale(' + window.innerWidth / 580 + ')';
+                } else {
+                    bd.style.zoom = window.innerWidth / 580;
+                }
+                if (iOS) {
+                    setTimeout(function() {
+                        window.onresize = ires
+                    }, 100)
+                } else {
+                    window.onresize = res
+                }
+                bd.style.display = '';
+            }
+            var ires = function() {
+                if (window.onresize) {
+                    window.onresize = null;
+                    var bd = document.getElementsByTagName('body')[0];
+                    bd.style.display = 'none';
+                    setTimeout(res, 500);
+                }
+            }
+            var loadcnt = 3;
+
+            function tui_go() {
+                --loadcnt;
+                if (loadcnt == 0) {
+                    if (window.clickTag == "") {
+                        document.getElementById("tui-ct").style.cursor = "auto"
+                    }
+                    if (typeof(tweenui.exp) == "function") {
+                        tweenui.exp();
+                    }
+                    if (g('s') == 1) {
+                        res();
+                        if (iOS) {
+                            window.addEventListener('orientationchange', ires, false)
+                        }
+                    }
+                    document.getElementsByTagName('body')[0].style.opacity = 1;
+                    startPlaying();
+                }
+            }
+            tweenui.init = function() {
+                timeline = new TimelineLite({
+                    paused: true,
+                    onComplete: startPlaying
+                });
+                TweenLite.defaultOverwrite = "none";
+                timeline.insert(new TweenLite({}, 0.0, {}), 8.45);
+                var layer_1 = document.getElementById("tui-20");
+                TweenLite.set(layer_1, {
+                    css: {
+                        autoAlpha: 1.0,
+                        x: 5,
+                        y: 5,
+                        scale: 1.0,
+                        rotationX: 0.0,
+                        rotationY: 0.0,
+                        rotationZ: 0.0
+                    }
+                });
+                var layer_2 = document.getElementById("tui-19");
+                TweenLite.set(layer_2, {
+                    css: {
+                        autoAlpha: 1.0,
+                        x: 0,
+                        y: 0,
+                        scale: 1.0,
+                        rotationX: 0.0,
+                        rotationY: 0.0,
+                        rotationZ: 0.0
+                    }
+                });
+                var layer_3 = document.getElementById("tui-13");
+                TweenLite.set(layer_3, {
+                    css: {
+                        autoAlpha: 1.0,
+                        x: 18,
+                        y: 343,
+                        scale: 1.0,
+                        rotationX: 0.0,
+                        rotationY: 0.0,
+                        rotationZ: 0.0
+                    }
+                });
+                var layer_4 = document.getElementById("tui-10");
+                TweenLite.set(layer_4, {
+                    css: {
+                        autoAlpha: 1.0,
+                        x: 0,
+                        y: 346,
+                        scale: 1.0,
+                        rotationX: 0.0,
+                        rotationY: 0.0,
+                        rotationZ: 0.0
+                    }
+                });
+                var layer_5 = document.getElementById("tui-21");
+                TweenLite.set(layer_5, {
+                    css: {
+                        autoAlpha: 1.0,
+                        x: 290,
+                        y: 0,
+                        scale: 1.0,
+                        rotationX: 0.0,
+                        rotationY: 0.0,
+                        rotationZ: 0.0
+                    }
+                });
+                var layer_6 = document.getElementById("tui-17");
+                timeline.insert(TweenLite.to(layer_6, 2.2930264993026497, {
+                    css: {
+                        y: 229,
+                        x: 74
+                    },
+                    ease: Power1.easeIn
+                }), 0.0);
+                TweenLite.set(layer_6, {
+                    css: {
+                        autoAlpha: 1.0,
+                        x: 596,
+                        y: 224,
+                        scale: 1.0,
+                        rotationX: 0.0,
+                        rotationY: 0.0,
+                        rotationZ: 0.0
+                    }
+                });
+                var layer_7 = document.getElementById("tui-12");
+                timeline.insert(TweenLite.to(layer_7, 2.2818410041841, {
+                    css: {
+                        y: 218,
+                        x: 48
+                    },
+                    ease: Power1.easeIn
+                }), 0.0);
+                TweenLite.set(layer_7, {
+                    css: {
+                        autoAlpha: 1.0,
+                        x: 583,
+                        y: 222,
+                        scale: 1.0,
+                        rotationX: 0.0,
+                        rotationY: 0.0,
+                        rotationZ: 0.0
+                    }
+                });
+                var layer_8 = document.getElementById("tui-14");
+                timeline.insert(TweenLite.to(layer_8, 0, {
+                    css: {
+                        display: "block"
+                    },
+                    immediateRender: false
+                }), 0.01674372523117569);
+                TweenLite.set(layer_8, {
+                    css: {
+                        autoAlpha: 1.0,
+                        x: 5,
+                        y: 348,
+                        scale: 1.0,
+                        rotationX: 0.0,
+                        rotationY: 0.0,
+                        rotationZ: 0.0
+                    }
+                });
+                var layer_9 = document.getElementById("tui-11");
+                TweenLite.set(layer_9, {
+                    css: {
+                        autoAlpha: 1.0,
+                        x: -72,
+                        y: 334,
+                        scale: 1.0,
+                        rotationX: 0.0,
+                        rotationY: 0.0,
+                        rotationZ: 134.0
+                    }
+                });
+                var layer_10 = document.getElementById("tui-16");
+                timeline.insert(TweenLite.to(layer_10, 1.554783821478382, {
+                    css: {
+                        y: 136,
+                        x: 45
+                    },
+                    ease: Power1.easeIn
+                }), 0.0);
+                TweenLite.set(layer_10, {
+                    css: {
+                        autoAlpha: 1.0,
+                        x: -210,
+                        y: 136,
+                        scale: 1.27,
+                        rotationX: 0.0,
+                        rotationY: 0.0,
+                        rotationZ: 0.0
+                    }
+                });
+                tui_go();
+            }
+            tui_go();
+            var imgcnt = 4;
+            tweenui.imgcntd = function(e) {
+                var id = e.id.replace(/[^0-9.]/g, "");
+                e.parentNode.removeChild(e);
+                document.getElementById('tui-' + id).appendChild(e);
+                --imgcnt;
+                if (imgcnt == 0) {
+                    tui_go();
+                }
+            }
+            tweenui.click = function() {
+                if (window.clickTag != "") {
+                    window.open(window.clickTag)
+                }
+            }
+            var l = gl(["l", "clicktag"]);
+            if (l != "") {
+                if (g('a') == 1) {
+                    l = l + encodeURIComponent(window.clickTag)
+                }
+                window.clickTag = l;
+            }
+        }(window.tweenui = window.tweenui || {}));
+    </script>
+    <style type="text/css">
+        body {
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+            margin: 0px;
+            padding: 0px;
+            position: fixed;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        #tui-animation {
+            overflow: hidden;
+            position: relative;
+            background: #ffffff;
+            width: 580px;
+            height: 400px;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-perspective: 500px;
+            perspective: 500px;
+        }
+        
+        #tui-animation div {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+        
+        #tui-animation img {
+            display: block;
+        }
+        
+        #tui-ct {
+            position: absolute;
+            width: 580px;
+            height: 400px;
+            border: 1px solid transparent;
+            box-sizing: border-box;
+            z-index: 11;
+            cursor: pointer;
+        }
+        
+        #tui-20 {
+            position: absolute;
+            z-index: 10;
+        }
+        
+        #tui-19 {
+            width: 580px;
+            background: #ecf0ff;
+            height: 55px;
+            position: absolute;
+            z-index: 9;
+        }
+        
+        #tui-13 {
+            position: absolute;
+            z-index: 8;
+        }
+        
+        #tui-10 {
+            width: 580px;
+            background: #4453c5;
+            height: 55px;
+            position: absolute;
+            z-index: 7;
+        }
+        
+        #tui-21 {
+            position: absolute;
+            z-index: 6;
+        }
+        
+        #tui-17 {
+            font-family: 'Arial';
+            white-space: nowrap;
+            color: #ffffff;
+            text-align: left;
+            text-decoration: none;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: normal;
+            position: absolute;
+            z-index: 5;
+        }
+        
+        #tui-12 {
+            width: 160px;
+            border-radius: 5px;
+            background: #41c979;
+            height: 45px;
+            position: absolute;
+            z-index: 4;
+        }
+        
+        #tui-14 {
+            display: none;
+            position: absolute;
+            z-index: 3;
+        }
+        
+        #tui-11 {
+            width: 269px;
+            border-radius: 100px;
+            background: #4453c5;
+            height: 269px;
+            position: absolute;
+            z-index: 2;
+        }
+        
+        #tui-16 {
+            padding: 9px;
+            font-family: 'Arial';
+            white-space: nowrap;
+            color: #000000;
+            text-align: left;
+            text-decoration: none;
+            font-size: 20px;
+            line-height: 1;
+            font-style: normal;
+            font-weight: 700;
+            position: absolute;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body style="opacity:0">
+    <div id="tui-animation">
+        <a href="https://caspianinsurance.co.uk/free-quote" target="_blank">
+            <div id="tui-ct" onclick="tweenui.click()"></div>
+            <div id="tui-20"></div>
+            <div id="tui-19">
+                <div class='tuirect'></div>
+            </div>
+            <div id="tui-13"></div>
+            <div id="tui-10">
+                <div class='tuirect'></div>
+            </div>
+            <div id="tui-21"></div>
+            <div id="tui-17">
+                Get a quote
+            </div>
+            <div id="tui-12">
+                <div class='tuirect'></div>
+            </div>
+            <div id="tui-14"></div>
+            <div id="tui-11">
+                <div class='tuirect'></div>
+            </div>
+            <div id="tui-16">Life Insurance<br>From £5 a month*</div>
+        </a>
+    </div>
+    <img src="img/319ec061dbec53e548c06502b97d26d6.png" onLoad="tweenui.imgcntd(this)" id="tui-img-21" />
+    <img src="img/8da187cf6e64bfe7ca630b956560513f.svg" onLoad="tweenui.imgcntd(this)" id="tui-img-14" />
+    <img src="img/82ddaf1a187fd10459cbdbf11be51687.png" onLoad="tweenui.imgcntd(this)" id="tui-img-20" />
+    <img src="img/8da187cf6e64bfe7ca630b956560513f.svg" onLoad="tweenui.imgcntd(this)" id="tui-img-13" />
+    <script>
+        (function(d, t) {
+            var s = d.createElement(t);
+            s.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js';
+            s.onload = s.onreadystatechange = function() {
+                var rs = this.readyState;
+                if (rs)
+                    if (rs != 'complete')
+                        if (rs != 'loaded') return;
+                tweenui.init();
+            };
+            var scr = d.getElementsByTagName(t)[0],
+                par = scr.parentNode;
+            par.insertBefore(s, scr);
+        })(document, 'script');
+    </script>
+
+</body>
+
+</html>
